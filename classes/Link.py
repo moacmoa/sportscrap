@@ -4,12 +4,6 @@ class Link():
 		"sopcast":		"sop://broker.sopcast.com:3912/",
 		"youtube":		"https://www.youtube.com/watch?v=",
 	}
-	# lang_table={
-		# "englisch":		"anglais",
-		# "spanisch":		"espagnol",
-		# "ukrainisch":	"ukrainien",
-		# "polnisch":		"polonais",
-	# }
 	
 	def __init__(self, streamer, video_id, lang="??", health="?", bitrate="", url="", match=None):
 		self.streamer=streamer
@@ -24,8 +18,8 @@ class Link():
 		
 		
 	def makeUrl(self):
-		if self.streamer in Link.streamer_table:
-			self.url=Link.streamer_table[self.streamer]+self.video_id
+		if self.streamer in self.streamer_table:
+			self.url=self.streamer_table[self.streamer]+self.video_id
 		return(self.url)
 		
 	def makeTitle(self):

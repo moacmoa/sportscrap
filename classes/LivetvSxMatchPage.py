@@ -1,11 +1,11 @@
 ﻿# coding: utf-8
 
-from classes.PageWeb import PageWeb
+from classes.LivetvSxWebPage import LivetvSxWebPage
 from classes.Link import Link
 from bs4 import BeautifulSoup
 import re
 
-class LivetvSxMatchPage(PageWeb):
+class LivetvSxMatchPage(LivetvSxWebPage):
 	def getLinks(self):
 		self.links=[]
 		self.url=self.url.replace("/frx/", "/enx/")
@@ -59,6 +59,9 @@ class LivetvSxMatchPage(PageWeb):
 			
 			#Récupération de l'url du lien
 			url=linktable.a["href"]
+			if url.startswith("//"):
+				url="http:"+url
+			# url=self.domain+url
 			
 			#Détection de la santé du stream
 			res = re.findall('(\d+)<span',linktable.__str__())

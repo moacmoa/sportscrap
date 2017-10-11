@@ -1,5 +1,4 @@
-﻿from classes.LivetvSxSportPage import LivetvSxSportPage
-from classes.LivetvSxAllEventsPage import LivetvSxAllEventsPage
+﻿from classes.LivetvSxAllEventsPage import LivetvSxAllEventsPage
 
 import json, os, datetime, sys
 import ftplib
@@ -27,7 +26,6 @@ else:
 	print("serverdir=/xxxxx")
 	sys.exit()
 
-print(config)
 allEventsPage=LivetvSxAllEventsPage(url)
 sports=allEventsPage.getSports()
 

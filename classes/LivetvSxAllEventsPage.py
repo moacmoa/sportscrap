@@ -1,14 +1,12 @@
 ﻿# coding: utf-8
 
-from classes.PageWeb import PageWeb
+from classes.LivetvSxWebPage import LivetvSxWebPage
 from classes.LivetvSxSportPage import LivetvSxSportPage
 from bs4 import BeautifulSoup
 # from datetime import datetime, timedelta
 # from fonctions.strToDatetime import strToDatetime
 
-class LivetvSxAllEventsPage(PageWeb):
-	domain="http://livetv.sx"
-	
+class LivetvSxAllEventsPage(LivetvSxWebPage):
 	def getSports(self, deltahours=None):
 		#Récupération du code HTML de la page
 		if not self.html:
@@ -31,7 +29,7 @@ class LivetvSxAllEventsPage(PageWeb):
 		for aTag in aTags:
 			sport=aTag.text.replace("\n", " ").strip()
 			if sport:
-				self.sports.append(LivetvSxSportPage(LivetvSxAllEventsPage.domain+aTag["href"]))
+				self.sports.append(LivetvSxSportPage(self.domain+aTag["href"]))
 		
 		return(self.sports)
 		
