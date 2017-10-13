@@ -13,6 +13,10 @@ class Link():
 		self.bitrate=bitrate
 		self.url=url
 		self.match=match
+		if match:
+			self.matchname=match.name
+		else:
+			self.matchname=""
 		
 		self.makeUrl()
 		
