@@ -6,7 +6,7 @@ from datetime import datetime
 def strToDatetime(sDate):
 	jour, mois, tmp, heure=sDate.split()
 	annee=time.strftime("%Y")
-	listmois=[u"janvier", u"février", u"mars", u"avril", u"mai", u"juin", u"juillet", u"aout", u"septembre", u"octobre", u"novembre", u"décembre"]
+	listmois=[u"janvier", u"février", u"mars", u"avril", u"mai", u"juin", u"juillet", u"août", u"septembre", u"octobre", u"novembre", u"décembre"]
 	mois=listmois.index(mois.lower())+1
 	heure, minute=heure.strip().split(":")
 	
